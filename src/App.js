@@ -3,6 +3,7 @@ import './App.css';
 import queryString from 'query-string';
 import Pagination from './Components/Pagination';
 import PostList from './Components/Post-List';
+import PostFiltersForm from './Components/PostFiltersForm';
 // import TodoForm from './Components/Todo-form';
 // import ColorBox from './Components/ColorBox';
 // import TodoList from './Components/Todo-list';
@@ -25,6 +26,7 @@ function App() {
   const [filters, setFilters] = useState({
     _limit: 10,
     _page: 1,
+    // title_like: ''
   })
 
   useEffect(() => {
@@ -35,7 +37,7 @@ function App() {
         const requestUrl = `http://js-post-api.herokuapp.com/api/posts?${paramsString}`;
         const response = await fetch(requestUrl);
         const responseJSON = await response.json();
-        console.log({ responseJSON });
+        // console.log({ responseJSON }); //test result
 
         const { data, pagination } = responseJSON;
         setPostList(data);
@@ -47,10 +49,6 @@ function App() {
     // console.log('useEffect1 is rendering'); //test
     fetchPostList();
   }, [filters]);
-
-  useEffect(() => {
-    console.log('useEffect2 is rendering')
-  })
 
   function handleTodoClick(todo) {
     console.log(todo);
@@ -83,12 +81,21 @@ function App() {
     }) 
   }
 
+  function handleFiltersChange(newFilters) {
+    console.log('Filters change: ', newFilters);
+    setFilters({
+      ...filters,
+      _page: 1,
+      title_like: newFilters.searchTerm,
+    })
+  }
+
   return (
     <div className="App">
       <h1>React hooks PostList</h1>
       {/* <TodoForm onSubmit={handleTodoFormSubmit} />
       <TodoList todos={todoList} onTodoClick={handleTodoClick} /> */}
-
+      <PostFiltersForm onSubmit={handleFiltersChange}/>
       <PostList posts={postList} />
       <Pagination pagination={pagination} onPageChange={handlePageChange}/>
     </div>
