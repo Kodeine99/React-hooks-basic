@@ -5,6 +5,7 @@ import Pagination from './Components/Pagination';
 import PostList from './Components/Post-List';
 import PostFiltersForm from './Components/PostFiltersForm';
 import Clock from './Components/Clock';
+import Clock2 from './Components/Clock2';
 // import TodoForm from './Components/Todo-form';
 // import ColorBox from './Components/ColorBox';
 // import TodoList from './Components/Todo-list';
@@ -108,6 +109,7 @@ function App() {
       <h1>React hooks Clock</h1>
       {showClock && <Clock />}
       <button onClick={() => setShowClock(false)}>Hide Clock</button>
+      <Clock2 />
     </div>
   );
 }

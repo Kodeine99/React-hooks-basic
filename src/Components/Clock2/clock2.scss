@@ -1,0 +1,12 @@
+.clock-2 {
+    display: inline-block;
+    width:300px;
+    border: 1px solid lightcoral;
+    border-radius: 5px;
+
+    text-align: center;
+
+    &_item {
+        color:lightcoral;
+    }
+}
