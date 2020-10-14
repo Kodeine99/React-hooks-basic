@@ -4,6 +4,7 @@ import queryString from 'query-string';
 import Pagination from './Components/Pagination';
 import PostList from './Components/Post-List';
 import PostFiltersForm from './Components/PostFiltersForm';
+import Clock from './Components/Clock';
 // import TodoForm from './Components/Todo-form';
 // import ColorBox from './Components/ColorBox';
 // import TodoList from './Components/Todo-list';
@@ -27,7 +28,9 @@ function App() {
     _limit: 10,
     _page: 1,
     // title_like: ''
-  })
+  });
+
+  const [showClock, setShowClock] = useState(true);
 
   useEffect(() => {
     async function fetchPostList() {
@@ -72,6 +75,8 @@ function App() {
     setTodoList(newTodoList);
   }
 
+  // const {}
+
   function handlePageChange(newPage) {
     console.log('New page: ', newPage);
     setFilters({
@@ -92,12 +97,17 @@ function App() {
 
   return (
     <div className="App">
-      <h1>React hooks PostList</h1>
+      {/* <h1>React hooks PostList</h1> */}
       {/* <TodoForm onSubmit={handleTodoFormSubmit} />
       <TodoList todos={todoList} onTodoClick={handleTodoClick} /> */}
-      <PostFiltersForm onSubmit={handleFiltersChange}/>
+      
+      {/* <PostFiltersForm onSubmit={handleFiltersChange}/>
       <PostList posts={postList} />
-      <Pagination pagination={pagination} onPageChange={handlePageChange}/>
+      <Pagination pagination={pagination} onPageChange={handlePageChange} /> */}
+      
+      <h1>React hooks Clock</h1>
+      {showClock && <Clock />}
+      <button onClick={() => setShowClock(false)}>Hide Clock</button>
     </div>
   );
 }
