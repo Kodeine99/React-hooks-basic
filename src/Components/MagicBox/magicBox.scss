@@ -1,0 +1,11 @@
+.magic-box{
+    $box-size: 250px;
+
+    display: inline-block;
+    width: $box-size;
+    height: $box-size;
+    border-radius: 10px;
+    // color: lightcoral;
+
+    transition: all .4s ease-in-out 0s;
+}

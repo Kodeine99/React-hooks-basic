@@ -6,6 +6,7 @@ import PostList from './Components/Post-List';
 import PostFiltersForm from './Components/PostFiltersForm';
 import Clock from './Components/Clock';
 import Clock2 from './Components/Clock2';
+import MagicBox from './Components/MagicBox';
 // import TodoForm from './Components/Todo-form';
 // import ColorBox from './Components/ColorBox';
 // import TodoList from './Components/Todo-list';
@@ -106,10 +107,12 @@ function App() {
       <PostList posts={postList} />
       <Pagination pagination={pagination} onPageChange={handlePageChange} /> */}
       
-      <h1>React hooks Clock</h1>
+      {/* <h1>React hooks Clock</h1>
       {showClock && <Clock />}
       <button onClick={() => setShowClock(false)}>Hide Clock</button>
-      <Clock2 />
+      <Clock2 /> */}
+
+      <MagicBox />
     </div>
   );
 }
