@@ -28,7 +28,7 @@ function useClock() {
         }
     }, [])
 
-    return { timeString };
+    return <h1>{ timeString }</h1>;
 }
 
 export default useClock;
